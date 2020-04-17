@@ -1,3 +1,5 @@
+import displayCoktail from './displayCoktail'
+
 export default (element, data) => {
 
     const render = () => {
@@ -10,16 +12,18 @@ export default (element, data) => {
                 <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=${i.strDrinkThumb}>
                 <div class="card-body">
                     <h6> ${i.strDrink} </h6>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-end align-items-center">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> voir + </button>
                         </div>
-                        <small class="text-muted">9 mins</small>
                     </div>
                 </div>         
             `
             element.appendChild(coktailCard)
+            coktailCard.addEventListener('click', (e) => {
+                console.log(i)
+                //displayCoktail(element, i)
+            })
         })
     }
 
