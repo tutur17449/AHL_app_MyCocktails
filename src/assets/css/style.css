@@ -2,6 +2,15 @@ html, body {
     font-family: 'Baloo Tamma 2', cursive;
 }
 
+.description {
+    font-size: 0.8rem;
+}
+
+.card-body h6.recip, .card-body h6.ingredients {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid grey;
+}
+
 section .container-fluid {
     background: url(../img/main-bg.jpg);
     background-repeat: no-repeat;

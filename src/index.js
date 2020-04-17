@@ -5,6 +5,7 @@ import { initLoading, openLoading, closeLoading } from './tools/displayLoading'
 import './assets/css/style.css'
 import loader from './assets/img/loading.gif'
 import icon from './assets/img/logo.png'
+import random from './components/random'
 
 
 const root = document.querySelector('#root')
@@ -20,6 +21,7 @@ const router = () => {
         return footer(features)
     } else if (window.location.pathname === '/random') {
         navbar(root)
+        random(root)
         return footer(features)
     } else if (window.location.pathname === '/search') {
         navbar(root)
