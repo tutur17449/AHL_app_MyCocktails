@@ -1,10 +1,12 @@
+import logo from '../../assets/img/logo.png'
+
 export default (element) => {
 
     const render = () => {
         const navbar = document.createElement('nav')
         navbar.classList.add('navbar', 'navbar-expand-lg', 'navbar-dark', 'bg-dark')
         navbar.innerHTML = `
-            <a class="navbar-brand" href="#">MyApp</a>
+            <a class="navbar-brand" href="#"><img style="width:30px; height:30px;" src="${logo}" alt="coktail aux fruits">MyCoktails</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -12,9 +14,6 @@ export default (element) => {
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>

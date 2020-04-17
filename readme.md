@@ -21,3 +21,22 @@ At the root of the project, install the dependencies with
 
 At the root of the project, run app with 
 > npm run app
+
+
+
+
+
+
+fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?a=Alcoholic", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+		"x-rapidapi-key": "d96a4bfdc3msh359d6eed9b9973ep11b8edjsnab24a25b832b"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.log(err);
+});

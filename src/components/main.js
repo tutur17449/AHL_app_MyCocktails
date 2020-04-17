@@ -3,8 +3,8 @@ export default (element) => {
     
     const render = () => {
         element.innerHTML += `
-        <section class="jumbotron text-center">
-            <div class="container">
+        <section class="text-center">
+            <div class="container-fluid">
                 <h1>My App</h1>
                 <p class="lead text-muted">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam, omnis quam autem aperiam deserunt
