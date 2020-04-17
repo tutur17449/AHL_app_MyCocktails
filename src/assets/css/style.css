@@ -6,9 +6,18 @@ html, body {
 
 /* Common */
 
-.card-coktail {
+.card-coktail, #coktailsContainer .card .card-img-top, h2 {
     transition-property: all;
-    transition-duration: .8s;
+    transition-duration: .4s;
+}
+
+h2 {
+    border-left: 1rem solid #f8b600;
+    padding-left: .3rem;
+}
+
+h2:hover {
+    border-left: 3rem solid #f8b600;
 }
 
 /* Spec */
@@ -22,8 +31,20 @@ html, body {
     border-bottom: 1px solid grey;
 }
 
-section .container-fluid {
+#main .container-fluid {
     background: url(../img/main-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+#random .container-fluid {
+    background: linear-gradient(180deg, rgba(147,147,147,.3) 0%, rgba(147,147,147,.31) 35%, rgba(147,147,147,.31) 100%), url(../img/random-bg.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom;
@@ -36,6 +57,14 @@ section .container-fluid {
 
 .text-muted {
     color: #000!important;
+}
+
+#coktailsContainer .card, #coktailsContainer .card .coktail-img {
+    overflow: hidden;
+}
+
+#coktailsContainer .card:hover .coktail-img {
+    transform: scale(1.1);
 }
 
 .card-coktail {
@@ -116,7 +145,7 @@ section .container-fluid {
     padding: 0;
     top: 0;
     left: 0!important;
-    background: rgba(255, 255, 255, .7);
+    background: #fff;
     display: none;
     z-index: 1050;
 }

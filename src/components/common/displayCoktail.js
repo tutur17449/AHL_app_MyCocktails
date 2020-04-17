@@ -1,3 +1,5 @@
+import { closeLoading } from "../../tools/displayLoading"
+
 export default (element, data) => {
 
     const printIngredients = (data, ingredients) => {
@@ -42,7 +44,7 @@ export default (element, data) => {
             if(allIngredients.ingredients[i] !== null && typeof allIngredients.ingredients[i] !== 'undefined'){
                 if(allIngredients.measures[i] !== null && typeof allIngredients.measures[i] !== 'undefined'){
                     ingredients.innerHTML += `
-                        <li class="description">${allIngredients.ingredients[i]} || ${allIngredients.measures[i]}</li>               
+                        <li class="description">${allIngredients.ingredients[i]}  ( ${allIngredients.measures[i]} )</li>               
                     `                    
                 } else {
                     ingredients.innerHTML += `
@@ -51,6 +53,8 @@ export default (element, data) => {
                 }               
             }
         }
+
+        closeLoading()
     }
 
     const render = () => {

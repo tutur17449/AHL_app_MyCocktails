@@ -1,7 +1,10 @@
-import { FETCHrequest } from '../tools/fetchClass';
-import displayCoktails from './common/displayCoktails';
+import { FETCHrequest } from '../tools/fetchClass'
+import displayCoktails from './common/displayCoktails'
+import { openLoading } from '../tools/displayLoading'
 
 export default (element) => {
+
+    openLoading()
 
     const getCoktails = (element) => { 
         const allCoktailsApiUrl = `https://the-cocktail-db.p.rapidapi.com/filter.php?a=Alcoholic`
@@ -18,7 +21,7 @@ export default (element) => {
     
     const render = () => {
         element.innerHTML += `
-        <section class="text-center">
+        <section id="main" class="text-center">
             <div class="container-fluid">
                 <h1>My Coktails</h1>
                 <p class="lead text-muted pt-5 pb-5">
@@ -31,7 +34,7 @@ export default (element) => {
 
         <div class="album py-5 bg-light">
             <div class="container">
-                <h2> Liste des coktails </h2>
+                <h2 class="mb-5"> Liste des coktails </h2>
                 <div id="coktailsContainer" class="row">
 
                 </div>

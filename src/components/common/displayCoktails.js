@@ -1,5 +1,6 @@
 import displayCoktail from './displayCoktail'
 import { FETCHrequest } from '../../tools/fetchClass'
+import { openLoading, closeLoading } from '../../tools/displayLoading'
 
 export default (element, data) => {
 
@@ -22,9 +23,9 @@ export default (element, data) => {
             coktailPreview.classList.add('col-md-4')
             coktailPreview.innerHTML = `
                 <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=${i.strDrinkThumb}>
+                <img class="bd-placeholder-img card-img-top coktail-img" width="100%" height="225" src=${i.strDrinkThumb}>
                 <div class="card-body">
-                    <h6> ${i.strDrink} </h6>
+                    <h6 class="mt-2"> ${i.strDrink} </h6>
                     <div class="d-flex justify-content-end align-items-center">
                         <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> voir + </button>
@@ -34,7 +35,10 @@ export default (element, data) => {
             `
             element.appendChild(coktailPreview)
 
+            closeLoading()
+
             coktailPreview.addEventListener('click', () => {
+                openLoading()
                 const id = coktailPreview.getAttribute('ref-id')
                 const singleCoktailContainer = document.createElement('div')
                 singleCoktailContainer.classList.add('card-coktail', 'open')

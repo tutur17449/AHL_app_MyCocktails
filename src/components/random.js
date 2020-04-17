@@ -1,7 +1,10 @@
 import { FETCHrequest } from '../tools/fetchClass';
 import displayCoktail from './common/displayCoktail';
+import { openLoading } from '../tools/displayLoading';
 
 export default (element) => {
+
+    openLoading()
 
     const getRandomCoktail = (element) => { 
         const allCoktailsApiUrl = `https://the-cocktail-db.p.rapidapi.com/random.php`
@@ -18,20 +21,18 @@ export default (element) => {
     
     const render = () => {
         element.innerHTML += `
-        <section class="text-center">
+        <section id="random" class="text-center">
             <div class="container-fluid">
                 <h1> Coktail aléatoire </h1>
                 <p class="lead text-muted pt-5 pb-5">
-                    Une envie de coktail ? Vous êtes au bon endroit ! Venez découvrir une gamme riche de +100 recettes de coktails à réaliser vous même. <br>
-                    Trouvez un coktail en fonction d'ingrédients ou tout simplement à partir de son nom ! <br>
-                    Bon apéro !
+                    Pas de panique, on s'occupe de tout ! Vous pourrez bientôt savourer votre coktail
                 </p>
             </div>
         </section>
 
         <div class="album py-5 bg-light">
             <div class="container">
-                <h2> I have a drink ... </h2>
+                <h2 class="mb-5"> I have a drink ... </h2>
                 <div id="randomCoktailContainer" class="row">
 
                 </div>
