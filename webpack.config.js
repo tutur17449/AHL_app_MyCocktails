@@ -46,9 +46,9 @@ module.exports = {
 			prefetch: [/\.js$/],
 			defaultAttribute: 'async'
 		}),
-/*     new webpack.DefinePlugin({
+    new webpack.DefinePlugin({
       "process.env.API_KEY": JSON.stringify(process.env['API_KEY']),
-    }), */
+    }),
 		new WebpackPwaManifest({
 			name: 'MyApp • AHL App',
 			short_name: 'MyApp',

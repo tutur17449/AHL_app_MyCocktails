@@ -1,3 +1,7 @@
+html, body {
+    font-family: 'Baloo Tamma 2', cursive;
+}
+
 section .container-fluid {
     background: url(../img/main-bg.jpg);
     background-repeat: no-repeat;

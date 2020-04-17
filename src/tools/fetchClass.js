@@ -10,7 +10,8 @@ export class FETCHrequest {
 
         if (this.key !== null) {
             this.requestHeader.headers = {
-                'X-Api-Key': this.key
+                "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+                "x-rapidapi-key": this.key
             }
         }
 
