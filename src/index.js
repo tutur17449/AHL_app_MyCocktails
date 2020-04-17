@@ -28,7 +28,6 @@ const router = () => {
         return footer(features)
     } else {
         return window.location.replace("/");
-
     }
 }
 

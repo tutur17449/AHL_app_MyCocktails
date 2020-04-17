@@ -1,6 +1,17 @@
+/* Init */
+
 html, body {
     font-family: 'Baloo Tamma 2', cursive;
 }
+
+/* Common */
+
+.card-coktail {
+    transition-property: all;
+    transition-duration: .8s;
+}
+
+/* Spec */
 
 .description {
     font-size: 0.8rem;
@@ -26,6 +37,44 @@ section .container-fluid {
 .text-muted {
     color: #000!important;
 }
+
+.card-coktail {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.card-coktail.open {
+    background-color: rgb(255, 255, 255, .8);
+    opacity: 1;
+}
+
+.card-coktail.open >  div{
+    width: 30%;
+    margin-top: 10rem;
+}
+
+@media (max-width: 768px){
+    .card-coktail.open >  div{
+        width: 80%;
+        margin-top: 2rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1064px){
+    .card-coktail.open >  div{
+        width: 60%;
+        margin-top: 6rem;
+    }    
+}
+
+
+/* Tools */
 
 #msgPopin {
     -webkit-transition: all .3s;

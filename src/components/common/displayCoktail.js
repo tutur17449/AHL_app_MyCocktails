@@ -54,6 +54,7 @@ export default (element, data) => {
     }
 
     const render = () => {
+        element.innerHTML = ''
         const coktailCard = document.createElement('div')
         coktailCard.setAttribute('ref-id', data.drinks[0].idDrink)
         coktailCard.classList.add('col-md-5', 'ml-auto', 'mr-auto')
@@ -84,7 +85,7 @@ export default (element, data) => {
                 </div>  
             `
         element.appendChild(coktailCard)
-        const ingredients = document.querySelector('#ingredients-list')
+        let ingredients = document.querySelector('#ingredients-list')
         printIngredients(data, ingredients)
     }
 
