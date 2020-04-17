@@ -11,6 +11,14 @@ require('dotenv').config({path: __dirname + '/.env'})
 console.log(path.resolve(__dirname, 'src/index.js'))
 
 module.exports = {
+  devServer: {
+    contentBase: path.resolve("public"),
+    compress: true,
+    port: 8080,
+    disableHostCheck: true,
+    historyApiFallback: true,
+    quiet: true
+  },
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     filename: 'bundle.js',
