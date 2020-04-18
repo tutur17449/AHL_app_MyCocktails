@@ -2,7 +2,7 @@ import displayCoktail from './displayCoktail'
 import { FETCHrequest } from '../../tools/fetchClass'
 import { openLoading, closeLoading } from '../../tools/displayLoading'
 
-export default (element, data) => {
+export default (element, data, search = null) => {
 
     const getSingleCoktail = (element, id) => {
         const allCoktailsApiUrl = `https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${id}`
@@ -17,25 +17,47 @@ export default (element, data) => {
     }
 
     const render = () => {
+        element.innerHTML = ''
+        let nbRes = 0
         data.drinks.map( i => {
             const coktailPreview = document.createElement('div')
-            coktailPreview.setAttribute('ref-id', i.idDrink)
-            coktailPreview.classList.add('col-md-4')
-            coktailPreview.innerHTML = `
-                <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top coktail-img" width="100%" height="225" src=${i.strDrinkThumb}>
-                <div class="card-body">
-                    <h6 class="mt-2"> ${i.strDrink} </h6>
-                    <div class="d-flex justify-content-end align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> voir + </button>
+            if(search !== null){
+                if(i.strDrink.indexOf(search) !== -1){
+                    coktailPreview.setAttribute('ref-id', i.idDrink)
+                    coktailPreview.classList.add('col-md-4')
+                    coktailPreview.innerHTML = `
+                        <div class="card mb-4 shadow-sm">
+                        <img class="bd-placeholder-img card-img-top coktail-img" width="100%" height="225" src=${i.strDrinkThumb}>
+                        <div class="card-body">
+                            <h6 class="mt-2"> ${i.strDrink} </h6>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> voir + </button>
+                                </div>
+                            </div>
+                        </div>         
+                    `
+                    nbRes++
+                    element.appendChild(coktailPreview)
+                }
+            } else {
+                coktailPreview.setAttribute('ref-id', i.idDrink)
+                coktailPreview.classList.add('col-md-4')
+                coktailPreview.innerHTML = `
+                    <div class="card mb-4 shadow-sm">
+                    <img class="bd-placeholder-img card-img-top coktail-img" width="100%" height="225" src=${i.strDrinkThumb}>
+                    <div class="card-body">
+                        <h6 class="mt-2"> ${i.strDrink} </h6>
+                        <div class="d-flex justify-content-end align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> show more </button>
+                            </div>
                         </div>
-                    </div>
-                </div>         
-            `
-            element.appendChild(coktailPreview)
-
-            closeLoading()
+                    </div>         
+                `
+                nbRes++
+                element.appendChild(coktailPreview)
+            }
 
             coktailPreview.addEventListener('click', () => {
                 openLoading()
@@ -51,6 +73,16 @@ export default (element, data) => {
                 })
             })
         })
+
+        closeLoading()
+
+        if(nbRes === 0){
+            element.innerHTML = `
+                <div class="col-md-4">
+                    <p> No result found </p>
+                </div>
+            `
+        }
     }
 
     return render()

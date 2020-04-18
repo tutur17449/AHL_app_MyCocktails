@@ -25,16 +25,16 @@ export default (element) => {
             <div class="container-fluid">
                 <h1>My Coktails</h1>
                 <p class="lead text-muted pt-5 pb-5">
-                    Une envie de coktail ? Vous êtes au bon endroit ! Venez découvrir une gamme riche de +100 recettes de coktails à réaliser vous même. <br>
-                    Trouvez un coktail en fonction d'ingrédients ou tout simplement à partir de son nom ! <br>
-                    Bon apéro !
+                    Want a cocktail? You are in the right place! Come and discover a rich range of +100 cocktail recipes to make yourself. <br>
+                    Find a cocktail based on ingredients or simply by name! <br>
+                    Good aperitif!
                 </p>
             </div>
         </section>
 
         <div class="album py-5 bg-light">
             <div class="container">
-                <h2 class="mb-5"> Liste des coktails </h2>
+                <h2 class="mb-5"> List of coktails </h2>
                 <div id="coktailsContainer" class="row">
 
                 </div>

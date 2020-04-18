@@ -1,4 +1,5 @@
 import logo from '../../assets/img/logo.png'
+import githubLogo from '../../assets/img/github.png'
 
 export default (element) => {
 
@@ -15,16 +16,15 @@ export default (element) => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/random">Coktail aléatoire</a>
+                        <a class="nav-link" href="/random">Random Coktail</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/search">Rechercher un coktail</a>
+                        <a class="nav-link" href="/search"> Search a coktail</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <a href="https://github.com/tutur17449" target="_blank">
+                    <img style="width:22px; height:22px;" src="${githubLogo}" alt="logo github"> 
+                </a>
             </div>            
         `
 

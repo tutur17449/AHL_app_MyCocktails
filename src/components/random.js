@@ -23,9 +23,9 @@ export default (element) => {
         element.innerHTML += `
         <section id="random" class="text-center">
             <div class="container-fluid">
-                <h1> Coktail aléatoire </h1>
+                <h1> Random Coktail </h1>
                 <p class="lead text-muted pt-5 pb-5">
-                    Pas de panique, on s'occupe de tout ! Vous pourrez bientôt savourer votre coktail
+                    Don't worry (be happy ...), we take care of everything! You will soon be able to enjoy your cocktail
                 </p>
             </div>
         </section>
@@ -34,7 +34,6 @@ export default (element) => {
             <div class="container">
                 <h2 class="mb-5"> I have a drink ... </h2>
                 <div id="randomCoktailContainer" class="row">
-
                 </div>
             </div>
         </div>
