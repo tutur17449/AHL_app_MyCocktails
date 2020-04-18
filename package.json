@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "main": "server.js",
   "dependencies": {
-    "dotenv": "^8.2.0"
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config webpack.config.js && cd ../server && npm start",
     "build": "webpack --config webpack.config.js",
-    "dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --mode development",
+    "app": "node server.js"
   },
   "author": "",
   "license": "ISC",
