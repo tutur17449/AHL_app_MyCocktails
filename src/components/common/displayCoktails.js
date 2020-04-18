@@ -31,7 +31,7 @@ export default (element, data, search = null) => {
                     coktailPreview.classList.add('col-md-4')
                     coktailPreview.innerHTML = `
                             <div class="card mb-4 shadow-sm">
-                            <img class="bd-placeholder-img card-img-top coktail-img" width="100%" height="225" src=${i.strDrinkThumb}>
+                            <img class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
                             <div class="card-body">
                                 <h6 class="mt-2"> ${i.strDrink} </h6>
                                 <div class="d-flex justify-content-end align-items-center">
@@ -49,7 +49,7 @@ export default (element, data, search = null) => {
                 coktailPreview.classList.add('col-md-4')
                 coktailPreview.innerHTML = `
                         <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top coktail-img" width="100%" height="225" src=${i.strDrinkThumb}>
+                        <img class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
                         <div class="card-body">
                             <h6 class="mt-2"> ${i.strDrink} </h6>
                             <div class="d-flex justify-content-end align-items-center">

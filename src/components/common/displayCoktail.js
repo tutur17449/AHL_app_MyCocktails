@@ -67,7 +67,7 @@ export default (element, data) => {
                     <div class="card-header text-center">
                         <h3> ${data.drinks[0].strDrink} </h3> 
                     </div>
-                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src=${data.drinks[0].strDrinkThumb}>
+                    <img class="bd-placeholder-img card-img-top" alt="coktail ${data.drinks[0].strDrink}"  width="100%" height="225" src=${data.drinks[0].strDrinkThumb}>
                     <div class="card-body">
                         <div class="d-flex flex-column justify-content-between align-items-center">
                             <h6 class="recip"> Recettes </h6>

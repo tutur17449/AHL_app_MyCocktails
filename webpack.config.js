@@ -50,9 +50,9 @@ module.exports = {
       "process.env.API_KEY": JSON.stringify(process.env['API_KEY']),
     }),
 		new WebpackPwaManifest({
-			name: 'MyApp • AHL App',
-			short_name: 'MyApp',
-			description: 'Starter for PWA with Node, Express and Webpack',
+			name: 'MyCoktails • AHL App',
+			short_name: 'MyCoktails',
+			description: 'Want a cocktail? You are in the right place! Come and discover a rich range of +100 cocktail recipes to make yourself. Find a cocktail based on ingredients or simply by name!',
 			theme_color: '#212121',
       background_color: '#212121',
       inject: true,
