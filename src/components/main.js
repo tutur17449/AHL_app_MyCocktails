@@ -1,6 +1,6 @@
 import { FETCHrequest } from '../tools/fetchClass'
 import displayCoktails from './common/displayCoktails'
-import { openLoading } from '../tools/displayLoading'
+import { openLoading, closeLoading } from '../tools/displayLoading'
 
 export default (element) => {
 
@@ -15,7 +15,8 @@ export default (element) => {
             return displayCoktails(element, data)
         })
         .catch(error => {
-            console.log(error)
+            closeLoading()
+            displayMsg('An error has occurred')
         })
     }
     

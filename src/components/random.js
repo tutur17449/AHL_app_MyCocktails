@@ -15,7 +15,8 @@ export default (element) => {
             return displayCoktail(element, data)
         })
         .catch(error => {
-            console.log(error)
+            closeLoading()
+            displayMsg('An error has occurred')
         })
     }
     

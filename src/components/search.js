@@ -13,19 +13,42 @@ export default (element) => {
             return displayCoktails(element, data, searchValue)
         })
         .catch(error => {
-            console.log(error)
+            closeLoading()
+            displayMsg('An error has occurred')
         })
     }
 
     const getAllCoktailsByIngredients = (element, ingredientValue) => { 
+        const allIngredientsApiUrl = `https://the-cocktail-db.p.rapidapi.com/list.php?i=list`
         const allCoktailsApiUrl = `https://the-cocktail-db.p.rapidapi.com/filter.php?i=${ingredientValue}`
-        const apiUrl = new FETCHrequest(allCoktailsApiUrl, 'GET', null, process.env.API_KEY)
+        const apiUrl = new FETCHrequest(allIngredientsApiUrl, 'GET', null, process.env.API_KEY)
         apiUrl.fetch()
         .then(data => {
-            return displayCoktails(element, data)
+            let nbCorresp = 0
+            data.drinks.map( i => {
+                if(i.strIngredient1 === ingredientValue){
+                    nbCorresp++
+                }
+            })
+            console.log(nbCorresp)
+            if(nbCorresp !==0){
+                const secApiUrl = new FETCHrequest(allCoktailsApiUrl, 'GET', null, process.env.API_KEY)
+                secApiUrl.fetch()
+                .then(response => {
+                    return displayCoktails(element, response)
+                })
+                .catch(error => {
+                    closeLoading()
+                    displayMsg('An error has occurred')
+                })
+            } else {
+                closeLoading()
+                displayMsg('An error has occurred')                
+            }
         })
         .catch(error => {
-            console.log(error)
+            closeLoading()
+            displayMsg('An error has occurred')
         })
     }
     
@@ -81,15 +104,27 @@ export default (element) => {
             e.preventDefault()
             const valueToSearch = document.querySelector('#searchValue').value
             const radioBtn1 = document.querySelector('#customRadioInline1')
+            const radioBtn2 = document.querySelector('#customRadioInline2')
+            let spec = valueToSearch.indexOf('<') + valueToSearch.indexOf('>')
 
             if(valueToSearch === null || valueToSearch.length === 0 || typeof valueToSearch === 'undefined'){
                 closeLoading()
-                displayMsg('Merci de renseigner une valeur, votre verre est vide !')
+                displayMsg('Please enter a value, your glass is empty !')
             } else {
-                if(radioBtn1.checked === true){
-                    getAllCoktailsByName(searchCoktailContainer, valueToSearch)
+                if(spec === -2){
+                    if(radioBtn1.checked === false && radioBtn2.checked === false){
+                        closeLoading()
+                        displayMsg('Please check an option')                    
+                    } else {
+                        if(radioBtn1.checked === true){
+                            getAllCoktailsByName(searchCoktailContainer, valueToSearch)
+                        } else {
+                            getAllCoktailsByIngredients(searchCoktailContainer, valueToSearch)    
+                        }                    
+                    }
                 } else {
-                    getAllCoktailsByIngredients(searchCoktailContainer, valueToSearch)    
+                    closeLoading()
+                    displayMsg('An error has occurred')                     
                 }
             }
         })

@@ -11,7 +11,7 @@ export class FETCHrequest {
         if (this.key !== null) {
             this.requestHeader.headers = {
                 "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
-                "x-rapidapi-key": this.key
+                "x-rapidapi-key": this.key,
             }
         }
 
@@ -36,7 +36,9 @@ export class FETCHrequest {
                             .then(error => reject(error))
                     };
                 })
-                .then(jsonData => resolve(jsonData))
+                .then(jsonData => {
+                    resolve(jsonData)                    
+                })
                 .catch(apiError => reject(apiError));
         })
     }
