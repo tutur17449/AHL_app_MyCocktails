@@ -36,7 +36,7 @@ export default (element, data, search = null) => {
                                 <h6 class="mt-2"> ${i.strDrink} </h6>
                                 <div class="d-flex justify-content-end align-items-center">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> voir + </button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary btn-show"> show more </button>
                                     </div>
                                 </div>
                             </div>         

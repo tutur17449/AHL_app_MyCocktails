@@ -2,6 +2,7 @@ exports.initLoading = (loader) => {
     console.log(loader)
     const img = document.createElement('img')
     img.setAttribute('src', '/'+loader)
+    img.setAttribute('alt', 'Loading ...')
     loading.appendChild(img)
 }
 

@@ -56,7 +56,7 @@ export default (element) => {
         element.innerHTML += `
         <section id="search" class="text-center">
             <div class="container-fluid">
-                <h1> Search a Coktail </h1>
+                <h1> Search a Cocktail </h1>
                 <div class="row">
                     <div id="search-form" class="col-md-4 mb-3 mr-auto ml-auto">
                         <div class="custom-control custom-radio custom-control-inline">

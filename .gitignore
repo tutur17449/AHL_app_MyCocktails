@@ -1,4 +1,6 @@
 #client
 node_modules/
 dist/
+!dist/robots.txt
+!dist/sitemap.xml
 .env

@@ -24,7 +24,7 @@ export default (element) => {
         element.innerHTML += `
         <section id="main" class="text-center">
             <div class="container-fluid">
-                <h1>My Coktails</h1>
+                <h1>My Cocktails</h1>
                 <p class="lead text-muted pt-5 pb-5">
                     Want a cocktail? You are in the right place! Come and discover a rich range of +100 cocktail recipes to make yourself. <br>
                     Find a cocktail based on ingredients or simply by name! <br>
