@@ -78,6 +78,9 @@ export default (element) => {
                                 </div>
                                 <input type="text" class="form-control" id="searchValue" aria-describedby="inputGroupPrepend3" required>
                             </div>
+                            <p>
+                                (n\'oubliez pas la majuscule en premier caractère)
+                            </p>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-light">Rechercher</button>
