@@ -56,10 +56,22 @@ module.exports = {
 			theme_color: '#212121',
       background_color: '#212121',
       inject: true,
+      fingerprints: true, 
+      includeDirectory: true,
+      ios: {
+        'apple-mobile-web-app-title': 'MyCoktails',
+        'apple-mobile-web-app-status-bar-style': 'white'
+      },
 			icons: [
 				{
 					src: path.resolve('public/favicon.png'),
-          sizes: [36, 48, 72, 96, 144, 192, 512],
+          sizes: [36, 48, 72, 96, 128, 144, 192, 512],
+        },
+        {
+          src: path.resolve('public/favicon.png'),
+          sizes: [120, 128, 152, 167, 180, 1024],
+          destination: path.join('icons', 'ios'),
+          ios: true
         },
 			]
     }),
