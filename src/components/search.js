@@ -79,7 +79,7 @@ export default (element) => {
                                 <input type="text" class="form-control" id="searchValue" aria-describedby="inputGroupPrepend3" required>
                             </div>
                             <p>
-                                (n\'oubliez pas la majuscule en premier caractère)
+                                (don\'t forget the capital letter in first character)
                             </p>
                         </div>
                     </div>
