@@ -12,18 +12,22 @@ const root = document.querySelector('#root')
 const loading = document.querySelector('#loading')
 const features = document.querySelector('footer')
 const linkIcon = document.querySelector('link[rel="icon"]')
+const title = document.querySelector('title')
 linkIcon.setAttribute('href', icon)
 
 const router = () => {
     if(window.location.pathname === '/'){
+        title.innerText = 'Home • MyCocktails • AHL App'
         navbar(root)
         main(root)
         return footer(features)
     } else if (window.location.pathname === '/random') {
+        title.innerText = 'Random • MyCocktails • AHL App'
         navbar(root)
         random(root)
         return footer(features)
     } else if (window.location.pathname === '/search') {
+        title.innerText = 'Search • MyCocktails • AHL App'
         navbar(root)
         search(root)
         return footer(features)

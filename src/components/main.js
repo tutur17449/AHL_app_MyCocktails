@@ -1,7 +1,7 @@
 import { FETCHrequest } from '../tools/fetchClass'
 import displayCoktails from './common/displayCoktails'
 import { openLoading, closeLoading } from '../tools/displayLoading'
-
+import { displayMsg } from '../tools/displayMsg'
 export default (element) => {
 
     openLoading()

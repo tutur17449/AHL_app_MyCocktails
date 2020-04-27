@@ -44,11 +44,11 @@ export default (element, data) => {
             if(allIngredients.ingredients[i] !== null && typeof allIngredients.ingredients[i] !== 'undefined'){
                 if(allIngredients.measures[i] !== null && typeof allIngredients.measures[i] !== 'undefined'){
                     ingredients.innerHTML += `
-                        <li class="description">${allIngredients.ingredients[i]}  ( ${allIngredients.measures[i]} )</li>               
+                        <li itemprop="recipeIngredient" class="description">${allIngredients.ingredients[i]}  ( ${allIngredients.measures[i]} )</li>               
                     `                    
                 } else {
                     ingredients.innerHTML += `
-                        <li class="description">${allIngredients.ingredients[i]}</li>               
+                        <li itemprop="recipeIngredient" class="description">${allIngredients.ingredients[i]}</li>               
                     `                        
                 }               
             }
@@ -61,20 +61,22 @@ export default (element, data) => {
         element.innerHTML = ''
         const coktailCard = document.createElement('div')
         coktailCard.setAttribute('ref-id', data.drinks[0].idDrink)
+        coktailCard.setAttribute('itemscope', true)
+        coktailCard.setAttribute('itemtype', 'http://schema.org/Recipe')
         coktailCard.classList.add('col-md-5', 'ml-auto', 'mr-auto')
         coktailCard.innerHTML = `
                 <div class="card mb-5 shadow-sm ml-auto mr-auto">
                     <div class="card-header text-center">
-                        <h3> ${data.drinks[0].strDrink} </h3> 
+                        <h3 itemprop="name"> ${data.drinks[0].strDrink} </h3> 
                     </div>
-                    <img class="bd-placeholder-img card-img-top" alt="coktail ${data.drinks[0].strDrink}"  width="100%" height="225" src=${data.drinks[0].strDrinkThumb}>
+                    <img title="${data.drinks[0].strDrink}" itemprop="image" class="bd-placeholder-img card-img-top" alt="coktail ${data.drinks[0].strDrink}"  width="100%" height="225" src=${data.drinks[0].strDrinkThumb}>
                     <div class="card-body">
                         <div class="d-flex flex-column justify-content-between align-items-center">
                             <h6 class="recip"> Recettes </h6>
                             ${data.drinks[0].strInstructionsFR !== null ? 
-                                `<span class="description mb-5">${data.drinks[0].strInstructionsFR}</span>` 
+                                `<span itemprop="recipeInstructions" class="description mb-5">${data.drinks[0].strInstructionsFR}</span>` 
                                 : 
-                                `<span class="description mb-5">${data.drinks[0].strInstructions}</span>` 
+                                `<span itemprop="recipeInstructions" class="description mb-5">${data.drinks[0].strInstructions}</span>` 
                             }
                             <h6 class="ingredients"> Ingrédients </h6>
                             <ul id="ingredients-list"> </ul>

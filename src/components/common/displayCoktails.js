@@ -2,6 +2,8 @@ import displayCoktail from './displayCoktail'
 import { FETCHrequest } from '../../tools/fetchClass'
 import { openLoading, closeLoading } from '../../tools/displayLoading'
 import { displayMsg } from '../../tools/displayMsg'
+import ScrollReveal from 'scrollreveal'
+
 
 export default (element, data, search = null) => {
 
@@ -28,10 +30,10 @@ export default (element, data, search = null) => {
             if (search !== null) {
                 if (i.strDrink.indexOf(search) !== -1) {
                     coktailPreview.setAttribute('ref-id', i.idDrink)
-                    coktailPreview.classList.add('col-md-4')
+                    coktailPreview.classList.add('col-md-4', 'card-reveal')
                     coktailPreview.innerHTML = `
                             <div class="card mb-4 shadow-sm">
-                            <img class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
+                            <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
                             <div class="card-body">
                                 <h6 class="mt-2"> ${i.strDrink} </h6>
                                 <div class="d-flex justify-content-end align-items-center">
@@ -46,10 +48,10 @@ export default (element, data, search = null) => {
                 }
             } else {
                 coktailPreview.setAttribute('ref-id', i.idDrink)
-                coktailPreview.classList.add('col-md-4')
+                coktailPreview.classList.add('col-md-4', 'card-reveal')
                 coktailPreview.innerHTML = `
                         <div class="card mb-4 shadow-sm">
-                        <img class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
+                        <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
                         <div class="card-body">
                             <h6 class="mt-2"> ${i.strDrink} </h6>
                             <div class="d-flex justify-content-end align-items-center">
@@ -69,9 +71,7 @@ export default (element, data, search = null) => {
                 const singleCoktailContainer = document.createElement('div')
                 singleCoktailContainer.classList.add('card-coktail', 'open')
                 element.appendChild(singleCoktailContainer)
-
                 getSingleCoktail(singleCoktailContainer, id)
-
                 singleCoktailContainer.addEventListener('click', () => {
                     element.removeChild(singleCoktailContainer)
                 })
@@ -79,6 +79,8 @@ export default (element, data, search = null) => {
         })
 
         closeLoading()
+        ScrollReveal().reveal('.card-reveal')
+
 
         if (nbRes === 0) {
             element.innerHTML = `

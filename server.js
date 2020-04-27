@@ -17,7 +17,7 @@ const server = express();
 const port = process.env.PORT;
 
 class ServerClass {
-    init(){
+    init() {
         server.use(cors());
         // View engine configuration
         server.engine('html', require('ejs').renderFile);
@@ -25,30 +25,34 @@ class ServerClass {
 
         console.log(path.join(__dirname, 'dist'))
         // Static path configuration
-        server.set( 'views', path.join(__dirname, 'dist') );
-        server.use( express.static(path.join(__dirname, 'dist')));
+        server.set('views', path.join(__dirname, 'dist'));
+        server.use(express.static(path.join(__dirname, 'dist')));
 
         //=> Body-parser
-            // pas plus de 10mb en json dans le body
-        server.use(bodyParser.json({limit: '10mb'}));
-            // pour avoir un beau rendu de l'objet json
+        // pas plus de 10mb en json dans le body
+        server.use(bodyParser.json({ limit: '10mb' }));
+        // pour avoir un beau rendu de l'objet json
         server.use(bodyParser.urlencoded({ extended: true }));
 
         // Routes server
         this.serverRoutes();
     }
 
-    serverRoutes(){
+    serverRoutes() {
         // Index
         server.get('/*', (req, res) => {
-            res.render('index'); 
+            res.render('index');
         })
+        // Error
+        server.use((req, res) => {
+            res.status(404).render('404');
+        });
 
         // Start server
         this.launch();
     }
 
-    launch(){
+    launch() {
         server.listen(port, () => console.log(`Server is running on port http://localhost:${port}/`))
     };
 }
