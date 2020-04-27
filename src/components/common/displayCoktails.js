@@ -7,8 +7,6 @@ import lozad from 'lozad'
 
 export default (element, data, search = null) => {
 
-    console.log(data)
-
     const getSingleCoktail = (element, id) => {
         const allCoktailsApiUrl = `https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${id}`
         const apiUrl = new FETCHrequest(allCoktailsApiUrl, 'GET', null, process.env.API_KEY)
@@ -22,6 +20,25 @@ export default (element, data, search = null) => {
             })
     }
 
+    const checkCache = () => {
+        if (window.caches) {
+            const lazyImages = Array.prototype.slice.call(document.querySelectorAll('img[data-src]'));
+            Promise.all(lazyImages.map(img => {
+                const src = img.dataset.src;
+                console.log(src)
+                return window.caches.match(src)
+                    .then(response => {
+                        if (response) {
+                            img.setAttribute('src', src);
+                            img.setAttribute('alt', img.datasrc.alt);
+                            img.removeAttribute('data-src');
+                            img.removeAttribute('data-alt');
+                        }
+                    })
+            }))
+        }
+    }
+
     const render = () => {
         element.innerHTML = ''
         let nbRes = 0
@@ -33,7 +50,13 @@ export default (element, data, search = null) => {
                     coktailPreview.classList.add('col-md-4', 'card-reveal')
                     coktailPreview.innerHTML = `
                             <div class="card mb-4 shadow-sm">
-                            <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img lozad" alt="coktail ${i.strDrink}" width="100%" height="225" data-src="${i.strDrinkThumb}">
+                            <img 
+                                title="${i.strDrink}" 
+                                class="bd-placeholder-img card-img-top coktail-img lozad" 
+                                alt="coktail ${i.strDrink}" 
+                                width="100%" height="225" 
+                                data-src="${i.strDrinkThumb}"
+                            >
                             <div class="card-body">
                                 <h6 class="mt-2"> ${i.strDrink} </h6>
                                 <div class="d-flex justify-content-end align-items-center">
@@ -51,7 +74,14 @@ export default (element, data, search = null) => {
                 coktailPreview.classList.add('col-md-4', 'card-reveal')
                 coktailPreview.innerHTML = `
                         <div class="card mb-4 shadow-sm">
-                        <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img lozad" alt="coktail ${i.strDrink}" width="100%" height="225" data-src="${i.strDrinkThumb}">
+                        <img 
+                            title="${i.strDrink}" 
+                            class="bd-placeholder-img card-img-top coktail-img lozad" 
+                            alt="coktail ${i.strDrink}" 
+                            width="100%" 
+                            height="225" 
+                            data-src="${i.strDrinkThumb}"
+                        >
                         <div class="card-body">
                             <h6 class="mt-2"> ${i.strDrink} </h6>
                             <div class="d-flex justify-content-end align-items-center">
@@ -78,11 +108,11 @@ export default (element, data, search = null) => {
             })
         })
 
+        checkCache()
         closeLoading()
         ScrollReveal().reveal('.card-reveal')
-        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+        const observer = lozad();
         observer.observe();
-
 
         if (nbRes === 0) {
             element.innerHTML = `
