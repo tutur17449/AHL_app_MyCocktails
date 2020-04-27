@@ -25,7 +25,6 @@ export default (element, data, search = null) => {
             const lazyImages = Array.prototype.slice.call(document.querySelectorAll('img[data-src]'));
             Promise.all(lazyImages.map(img => {
                 const src = img.dataset.src;
-                console.log(src)
                 return window.caches.match(src)
                     .then(response => {
                         if (response) {

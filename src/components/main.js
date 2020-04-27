@@ -11,7 +11,6 @@ export default (element) => {
         const apiUrl = new FETCHrequest(allCoktailsApiUrl, 'GET', null, process.env.API_KEY)
         apiUrl.fetch()
         .then(data => {
-            console.log(data)
             return displayCoktails(element, data)
         })
         .catch(error => {
