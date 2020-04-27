@@ -3,7 +3,7 @@ import { FETCHrequest } from '../../tools/fetchClass'
 import { openLoading, closeLoading } from '../../tools/displayLoading'
 import { displayMsg } from '../../tools/displayMsg'
 import ScrollReveal from 'scrollreveal'
-
+import lozad from 'lozad'
 
 export default (element, data, search = null) => {
 
@@ -33,7 +33,7 @@ export default (element, data, search = null) => {
                     coktailPreview.classList.add('col-md-4', 'card-reveal')
                     coktailPreview.innerHTML = `
                             <div class="card mb-4 shadow-sm">
-                            <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
+                            <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img lozad" alt="coktail ${i.strDrink}" width="100%" height="225" data-src="${i.strDrinkThumb}">
                             <div class="card-body">
                                 <h6 class="mt-2"> ${i.strDrink} </h6>
                                 <div class="d-flex justify-content-end align-items-center">
@@ -51,7 +51,7 @@ export default (element, data, search = null) => {
                 coktailPreview.classList.add('col-md-4', 'card-reveal')
                 coktailPreview.innerHTML = `
                         <div class="card mb-4 shadow-sm">
-                        <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img" alt="coktail ${i.strDrink}" width="100%" height="225" src=${i.strDrinkThumb}>
+                        <img title="${i.strDrink}" class="bd-placeholder-img card-img-top coktail-img lozad" alt="coktail ${i.strDrink}" width="100%" height="225" data-src="${i.strDrinkThumb}">
                         <div class="card-body">
                             <h6 class="mt-2"> ${i.strDrink} </h6>
                             <div class="d-flex justify-content-end align-items-center">
@@ -80,6 +80,8 @@ export default (element, data, search = null) => {
 
         closeLoading()
         ScrollReveal().reveal('.card-reveal')
+        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+        observer.observe();
 
 
         if (nbRes === 0) {
