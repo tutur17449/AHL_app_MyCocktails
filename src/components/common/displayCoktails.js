@@ -11,9 +11,9 @@ export default (element, data, search = null) => {
     const stepData = {
         currentStep: 0,
         maxStep: data.drinks.length,
-        step: 16,
+        step: data.drinks.length>16 ? 16 : data.drinks.length,
         data: data,
-        nextStep: 16
+        nextStep: data.drinks.length>16 ? 16 : data.drinks.length
     }
 
     const getSingleCoktail = (element, id) => {
@@ -95,23 +95,27 @@ export default (element, data, search = null) => {
     const render = () => {
         openLoading()
         element.innerHTML = ''
-        const btnShow = document.createElement('button')
-        btnShow.classList.add('btn', 'btn-lazy')
-        btnShow.innerHTML = 'Show more'
-        printLazyData(element, stepData)
-        element.appendChild(btnShow)
-        btnShow.addEventListener('click', () => {
-            console.log(stepData)
-            openLoading()
-            if (data.drinks.length === stepData.nextStep) {
-                element.removeChild(btnShow)
-                printLazyData(element, stepData)
-            } else {
-                element.removeChild(btnShow)
-                printLazyData(element, stepData)
-                element.appendChild(btnShow)
-            }
-        })
+        if (data.drinks.length === stepData.nextStep) {
+            printLazyData(element, stepData)
+        } else {
+            const btnShow = document.createElement('button')
+            btnShow.classList.add('btn', 'btn-lazy')
+            btnShow.innerHTML = 'Show more'
+            printLazyData(element, stepData)
+            element.appendChild(btnShow)
+            btnShow.addEventListener('click', () => {
+                console.log(stepData)
+                openLoading()
+                if (data.drinks.length === stepData.nextStep) {
+                    element.removeChild(btnShow)
+                    printLazyData(element, stepData)
+                } else {
+                    element.removeChild(btnShow)
+                    printLazyData(element, stepData)
+                    element.appendChild(btnShow)
+                }
+            })            
+        }
     }
 
     return render()
