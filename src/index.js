@@ -4,9 +4,13 @@ import footer from './components/common/footer'
 import random from './components/random'
 import search from './components/search'
 import { initLoading, openLoading, closeLoading } from './tools/displayLoading'
-import './assets/css/style.css'
 import loader from './assets/img/loading.gif'
 import icon from './assets/img/logo.png'
+import 'jquery'
+import 'popper.js'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './assets/css/style.css'
 
 const root = document.querySelector('#root')
 const loading = document.querySelector('#loading')

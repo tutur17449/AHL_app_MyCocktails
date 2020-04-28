@@ -6,20 +6,22 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.0.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
+    "jquery": "3.4.1",
     "lozad": "^1.14.0",
     "path": "^0.12.7",
+    "popper.js": "^1.12",
     "scrollreveal": "^4.0.6"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.config.js && cd ../server && npm start",
-    "build": "webpack --config webpack.config.js",
-    "dev": "webpack-dev-server --mode development",
+    "dev": "webpack-dev-server --mode development --env.mode=development",
+    "analysis": "webpack --mode production --env.mode=production --profile --json > stats.json",
+    "prod": "webpack --mode production --env.mode=production",
     "app": "node server.js"
   },
   "author": "",
@@ -38,6 +40,8 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-pwa-manifest": "^4.2.0",
-    "workbox-webpack-plugin": "^5.1.2"
+    "workbox-webpack-plugin": "^5.1.2",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "prettier": "^1.19.1"
   }
 }

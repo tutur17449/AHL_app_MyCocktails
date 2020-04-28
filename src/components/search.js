@@ -10,9 +10,32 @@ export default (element) => {
         const apiUrl = new FETCHrequest(allCoktailsApiUrl, 'GET', null, process.env.API_KEY)
         apiUrl.fetch()
         .then(data => {
-            return displayCoktails(element, data, searchValue)
+            const coktailCorresp = {
+                drinks: []
+            }
+            data.drinks.map(i=>{
+                if(i.strDrink.indexOf(searchValue) !== -1){
+                    coktailCorresp.drinks.push(i)
+                }
+            })
+            if(coktailCorresp.drinks.length !== 0){
+                return displayCoktails(element, coktailCorresp, searchValue)
+            } else {
+                element.innerHTML = `
+                <div class="col-md-4">
+                    <p> No result found </p>
+                </div>
+                `    
+                closeLoading()
+                displayMsg('An error has occurred')
+            }
         })
         .catch(error => {
+            element.innerHTML = `
+            <div class="col-md-4">
+                <p> No result found </p>
+            </div>
+            `    
             closeLoading()
             displayMsg('An error has occurred')
         })
@@ -31,22 +54,37 @@ export default (element) => {
                 }
             })
             console.log(nbCorresp)
-            if(nbCorresp !==0){
+            if(nbCorresp !== 0){
                 const secApiUrl = new FETCHrequest(allCoktailsApiUrl, 'GET', null, process.env.API_KEY)
                 secApiUrl.fetch()
                 .then(response => {
                     return displayCoktails(element, response)
                 })
                 .catch(error => {
+                    element.innerHTML = `
+                        <div class="col-md-4">
+                            <p> No result found </p>
+                        </div>
+                    `    
                     closeLoading()
                     displayMsg('An error has occurred')
                 })
             } else {
+                element.innerHTML = `
+                    <div class="col-md-4">
+                        <p> No result found </p>
+                    </div>
+                `                
                 closeLoading()
                 displayMsg('An error has occurred')                
             }
         })
         .catch(error => {
+            element.innerHTML = `
+            <div class="col-md-4">
+                <p> No result found </p>
+            </div>
+        `    
             closeLoading()
             displayMsg('An error has occurred')
         })
