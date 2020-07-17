@@ -1,0 +1,15 @@
+.custom-border{
+    &:after{
+        display:block;
+        content: '';
+        border-bottom: solid 2px #fcca4c;  
+        transform: scaleX(0);  
+        transition: transform 250ms ease-in-out;
+    }
+
+    &:hover {
+        &:after {
+            transform: scaleX(1); 
+        }
+    }
+}
