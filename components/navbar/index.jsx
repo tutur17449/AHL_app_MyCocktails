@@ -12,6 +12,7 @@ import {
     DropdownItem,
     NavbarText
 } from 'reactstrap';
+import NavToggler from '../navToggler/index'
 import './index.scss'
 
 export default function Menu() {
@@ -23,7 +24,10 @@ export default function Menu() {
     return (
         <Navbar color="white" light expand="md">
             <NavbarBrand href="/">My Cocktails</NavbarBrand>
-            <NavbarToggler onClick={toggle} />
+            <NavToggler 
+                toggle={toggle} 
+                open={isOpen}
+            />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                     <NavItem>

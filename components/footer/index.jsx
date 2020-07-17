@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Button, Container, Row, Col } from "reactstrap"
 import GitHubIcon from '@material-ui/icons/GitHub'
 import './style.scss'
@@ -25,13 +24,7 @@ export default function AppFooter(){
                   <div className="links">
                     <ul className="uppercase-links stacked-links">
                       <li>
-                        <Link href="/">Accueil</Link>
-                      </li>
-                      <li>
-                        <Link href="/recettes">Recettes</Link>
-                      </li>
-                      <li>
-                        <Link href="/blog">Blog</Link>
+                        <a href="/">Accueil</a>
                       </li>
                     </ul>
                   </div>
@@ -40,19 +33,7 @@ export default function AppFooter(){
                   <div className="links">
                     <ul className="uppercase-links stacked-links">
                       <li>
-                        <Link href="/activite">Activité</Link>
-                      </li>
-                      <li>
-                        <Link href="/produits">Produits</Link>
-                      </li>
-                    </ul>
-                  </div>
-                </Col>
-                <Col md="4" sm="4" xs="6">
-                  <div className="links">
-                    <ul className="uppercase-links stacked-links">
-                      <li>
-                        <Link href="/contact">Contact</Link>
+                        <a href="/activite">Activité</a>
                       </li>
                     </ul>
                   </div>
@@ -62,13 +43,6 @@ export default function AppFooter(){
               <div className="copyright">
                 <div className="pull-left">
                   © {new Date().getFullYear()} Objectif Régime - AHL app
-                </div>
-                <div className="links pull-right">
-                  <ul>
-                    <li className="mr-1">
-                      <Link href="/mentions-legales">Mentions Légales</Link>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </Col>

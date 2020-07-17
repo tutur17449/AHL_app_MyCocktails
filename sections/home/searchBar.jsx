@@ -1,6 +1,6 @@
 import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '@material-ui/icons/Search'
-import './index.scss'
+import './searchBar.scss'
 
 export default function SearchBar() {
     return (
