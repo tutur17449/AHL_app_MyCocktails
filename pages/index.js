@@ -3,13 +3,32 @@ import Footer from '../components/footer/index'
 import Header from '../components/header/index'
 import Preview from '../components/homePreview/index'
 import BgSeparator from '../components/bgSeparator/index'
+import Head from 'next/head'
+import seo from '../tools/seo'
 
 export default function Home(props) {
-  console.log(props.jsonDataAlc)
   return (
     <React.Fragment>
+      <Head>
+        <title> Home • MyCocktails • AHL App </title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="description" content="Want a cocktail? You are in the right place! Discover a rich range of cocktail recipes to make yourself. Find a cocktail based on ingredients or name!" />
+        <meta name="robots" content="noodp" />
+        <meta name="keywords" content="drink, alcohol, boisson, cocktail, wine, gin, tequilla, vodka, whisky, curacao, schnapps" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Home • MyCocktails • AHL App" />
+        <meta property="og:description" content="Want a cocktail? You are in the right place! Discover a rich range of cocktail recipes to make yourself. Find a cocktail based on ingredients or name!" />
+        <meta property="og:site_name" content="MyCocktails" />
+        <meta property="og:image" content="" />
+        <script
+            type='application/ld+json'
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(seo()) }}
+        />
+      </Head>
       <Menu />
-      <Header 
+      <Header
         mainTitle="My Cocktails"
         subTitle="Want a cocktail ? You are in the right place! Come and discover a rich range of +100 cocktail recipes to make yourself."
         otherContent="Find a cocktail based on ingredients or simply by name! Good aperitif!"

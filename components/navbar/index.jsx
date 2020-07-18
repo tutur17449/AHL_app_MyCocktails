@@ -4,13 +4,18 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    NavbarText
+    NavLink
 } from 'reactstrap';
 import NavToggler from '../navToggler/index'
-import './index.scss'
 
 export default function Menu() {
+
+    const style = {
+        fontWeight: "bold",
+        backgroundColor: '#fcca4c',
+        padding: '.35rem 2rem',
+        borderRadius: '20px'
+    }
 
     const [isOpen, setIsOpen] = React.useState(false);
 
@@ -32,7 +37,7 @@ export default function Menu() {
                         <NavLink href="/non-alcoholic">Non Alcoholic</NavLink>
                     </NavItem>
                 </Nav>
-                <NavbarText>Simple Text</NavbarText>
+                <a style={style} href="https://github.com/tutur17449" target="_blank" rel="noopener noreferrer">GitHub</a>
             </Collapse>
         </Navbar>
     )

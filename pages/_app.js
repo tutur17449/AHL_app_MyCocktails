@@ -21,9 +21,9 @@ export default function MyApp({ Component, pageProps }) {
 
     return (
         isLoading ? (
-            <Loader />
+          <Loader />
         ) : (
-            <Component {...pageProps} />
+          <Component {...pageProps} />
         )
     )
 }

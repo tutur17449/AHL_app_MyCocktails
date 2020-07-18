@@ -15,7 +15,7 @@ export default function HomePreview(props) {
                             />
                         ))}
                         <div className="col-12 text-right mt-3">
-                            <a className="nav-link d-flex justify-content-end align-items-center" href={props.source}>
+                            <a className="nav-link d-flex justify-content-end align-items-center" href={props.source} style={{color: "#000"}}>
                                 <AddCircleIcon />
                                 <span className="pl-1">Show all cocktails</span>
                             </a>
