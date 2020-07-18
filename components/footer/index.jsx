@@ -9,7 +9,7 @@ export default function AppFooter(){
         <Container>
           <Row>
             <Col className="text-center ml-auto mr-auto" md="3" sm="4" xs="12">
-              <h4>Objectif Régime</h4>
+              <h4>My Cocktails</h4>
               <div className="social-area">
                 <Button className="btn-just-icon btn-round mr-1 btn-github">
                   <a className="btn btn-github" href="https://github.com/tutur17449" target="_blank" rel="noopener noreferrer">
@@ -24,7 +24,7 @@ export default function AppFooter(){
                   <div className="links">
                     <ul className="uppercase-links stacked-links">
                       <li>
-                        <a href="/">Accueil</a>
+                        <a href="/">Home</a>
                       </li>
                     </ul>
                   </div>
@@ -33,7 +33,16 @@ export default function AppFooter(){
                   <div className="links">
                     <ul className="uppercase-links stacked-links">
                       <li>
-                        <a href="/activite">Activité</a>
+                        <a href="/alcoholic">Alcoholic</a>
+                      </li>
+                    </ul>
+                  </div>
+                </Col>
+                <Col md="4" sm="4" xs="6">
+                  <div className="links">
+                    <ul className="uppercase-links stacked-links">
+                      <li>
+                        <a href="/non-alcoholic">Non Alcoholic</a>
                       </li>
                     </ul>
                   </div>
@@ -42,7 +51,7 @@ export default function AppFooter(){
               <hr />
               <div className="copyright">
                 <div className="pull-left">
-                  © {new Date().getFullYear()} Objectif Régime - AHL app
+                  © {new Date().getFullYear()} My Cocktails - AHL app
                 </div>
               </div>
             </Col>

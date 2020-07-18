@@ -1,15 +1,10 @@
 import {
     Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     NavbarText
 } from 'reactstrap';
 import NavToggler from '../navToggler/index'
@@ -31,28 +26,11 @@ export default function Menu() {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
                     <NavItem>
-                        <NavLink className="custom-border" href="/components/">Components</NavLink>
+                        <NavLink href="/alcoholic">Alcoholic</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="custom-border" href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                        <NavLink href="/non-alcoholic">Non Alcoholic</NavLink>
                     </NavItem>
-                    <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret>
-                            Options
-                        </DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem>
-                                Option 1
-                            </DropdownItem>
-                            <DropdownItem>
-                                Option 2
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem>
-                                Reset
-                            </DropdownItem>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
                 </Nav>
                 <NavbarText>Simple Text</NavbarText>
             </Collapse>

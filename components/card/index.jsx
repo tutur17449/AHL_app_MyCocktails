@@ -16,14 +16,16 @@ export default function CocktailCard(props) {
 
   return (
     <Card className="col-10 col-lg-3 ml-auto mr-auto ml-lg-5 mr-lg-auto mt-3 mb-3">
-      <CardHeader
-        title={props.cocktail.strDrink}
-      />
-      <CardMedia
-        className={classes.media}
-        image={`${props.cocktail.strDrinkThumb}/preview`}
-        title={props.cocktail.strDrink}
-      />
+      <a className="custom-border" href={`${props.source}/${props.cocktail.idDrink}`}>
+        <CardHeader
+          title={props.cocktail.strDrink}
+        />
+        <CardMedia
+          className={classes.media}
+          image={`${props.cocktail.strDrinkThumb}/preview`}
+          title={props.cocktail.strDrink}
+        />
+      </a>
     </Card>
   );
 }

@@ -1,4 +1,3 @@
-import 'bootstrap/scss/bootstrap.scss'
 import Router from 'next/router'
 import Loader from '../components/loader/index'
 import 'bootstrap/scss/bootstrap.scss'

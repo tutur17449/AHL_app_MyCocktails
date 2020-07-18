@@ -1,7 +1,6 @@
 .hamburger {
     display: none;
-    @media(max-width: 1024px) {
-
+    @media(max-width: 768px) {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -24,7 +23,7 @@
     }
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 768px) {
     .hamburger.hamburger-ouvert {
         transform: translateX(6px);
     }

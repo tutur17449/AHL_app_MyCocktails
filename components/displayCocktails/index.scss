@@ -1,13 +1,10 @@
-#cocktails {
-    background-color: #F5F5F5;
-    min-height: 100vh;
-}
-
 .btn-custom {
     display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 20px;
-    color: #fff;
+    font-weight: 500;
+    font-size: 20px!important;
+    padding: .5rem 2rem;
+    border-radius: 15px;
+    color: #000;
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: .15rem;
@@ -39,7 +36,7 @@
         z-index: -1;
     }
     &:hover {
-        color: #fff;
+        color: #000;
         &:before {
             width: 100%;
         }
