@@ -16,6 +16,6 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "reactstrap": "^8.4.1",
-    "node-sass": "^4.13.1"
+    "node-sass": "^7.0.0"
   }
 }
